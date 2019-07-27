@@ -1,25 +1,9 @@
 $runner = null;
 
-Math.seed = function(s) {
-    return function() {
-        s = Math.sin(s) * 10000; return s - Math.floor(s);
-    };
-};
-
 $(function() {
 
   $runner = $("#runner");
   detailed = false;
-
-  $(".config").each(function() {
-    var $this = $(this);
-
-    var value = getUrlParameter($this.attr("id"));
-    if(typeof value !== typeof undefined) {
-      $this.val(parseFloat(value));
-      $this.trigger("change");
-    }
-  });
 
   $(".config").on("propertychange change click keyup input paste", function() {
     var $this = $(this);
@@ -63,10 +47,21 @@ $(function() {
     $(this).trigger("change");
   });
 
+  $("chanceRange").ready(function() {
+    $(".config").each(function() {
+      var $this = $(this);
+
+      var value = getUrlParameter($this.attr("id"));
+      if(typeof value !== typeof undefined) {
+        $this.val(parseFloat(value));
+        $this.trigger("change");
+      }
+    });
+  })
+
 });
 
 function run() {
-  Math.seed(Date.now());
   detailed = $('#detailed').prop('checked');
 
   reset();
@@ -141,9 +136,9 @@ function print(msg, type) {
   }
 }
 
-function onChanceRangeChange() {
+function onChanceRangeChange(event) {
   var chance = document.getElementById("chanceRange").value;
-  document.getElementById("chance").value = chance;
+  $("#chance").val(chance).trigger("change");
 }
 
 function setUrlParameter(paramName, paramValue, reload) {

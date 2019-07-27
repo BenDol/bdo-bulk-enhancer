@@ -117,10 +117,11 @@ function run() {
   }
 
   var summary = "Average Total: " + avgTotal;
-  print("Total Average: " + avgTotal);
+  if (detailed) print(summary);
   summary += "<br/>Average Enhancement Rate: " + (avgTotal/players).toFixed(2) + " attempts";
-  print(summary);
+  if (detailed) print(summary);
   $runner.find("#results").parent().append("<div>"+ summary +"</div>__________________________________________________")
+  print("Good luck!");
 }
 
 function reset() {

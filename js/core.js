@@ -116,8 +116,7 @@ function run() {
     avgTotal += averages[p];
   }
 
-  var summary = "Average Total: " + avgTotal;
-  if (detailed) print(summary);
+  var summary = "Average Total: " + avgTotal + " attempts";
   summary += "<br/>Average Enhancement Rate: " + (avgTotal/players).toFixed(2) + " attempts";
   if (detailed) print(summary);
   $runner.find("#results").parent().append("<div>"+ summary +"</div>__________________________________________________")

@@ -1,0 +1,92 @@
+<html>
+  <head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <link type="text/css" rel="stylesheet" href="css/style.css" media="screen,projection"/>
+
+      <title>Bonfyre's BDO Bulk Enhancer</title>
+  </head>
+
+  <body>
+    <h3 class="header">
+      Bonfyre's BDO Bulk Enhancer
+    </h3>
+    <div class="info">
+      Get an idea of how many attempts it will take you to enhance your items. Put in the enhancement chance, how many player iterations and how many items each player will be successfully enhancing. The higher the numbers the slower the calculation, but the result will be a more accurate. A convenience tool for figuring out your enhancement rate, made by Bonfyre! If you have any suggestions, you can find me on <b>Discord: Bonfyre#6103</b>
+    </div>
+
+    <div id="config" class="left">
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <form action="#">
+                <label for="chanceRange">Enhancement Chance</label>
+                <p class="range-field left" style="width:65%;padding-top:27px">
+                  <input type="range" id="chanceRange" min="0.01" max="100.00" step="0.01" value="5.37" onchange="onChanceRangeChange()" />
+                </p>
+              </form>
+              <input type="number" id="chance" class="config left" style="width:30%;margin-left:10px" step="0.01" min="0.01" max="100.00" value="5.37" />
+              <div class="left" style="padding-top: 10px">%</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="players" type="number" class="config validate" placeholder="Number of players that will be enhancing (larger is more accurate)">
+              <label for="players">Players Enhancing</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">check</i>
+              <input id="amount" type="number" class="config validate" placeholder="Number of successful enhancements per player (larger is more accurate)">
+              <label for="amount">Enhancement Limit</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <div class="switch">
+                <label>
+                  Basic
+                  <input type="checkbox" id="detailed">
+                  <span class="lever"></span>
+                  Detailed
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="runner" class="left">
+      
+    </div>
+
+    <div class="left">
+      <div style="margin-top:40px;padding-left: 20px;padding-right:20px;">
+        <button id="run" class="waves-effect waves-light btn" onclick="run()"><i class="material-icons left">play_arrow</i>Run</button>
+        <button id="reset" class="waves-effect waves-light btn" onclick="reset()"><i class="material-icons left">clear</i>Reset</button>
+      </div>
+    </div>
+
+    <div class="footer left">
+      
+    </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/js.cookie-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+  </body>
+</html>

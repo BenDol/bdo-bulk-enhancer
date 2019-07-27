@@ -1,0 +1,49 @@
+body {
+  min-height: 100%;
+}
+
+#config {
+  width:40%;
+  margin-top: 20px;
+}
+
+#runner {
+  width:45%;
+  margin:0 40px 40px;
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.overall {
+
+}
+
+.header {
+  color: #ee6e73;
+  font-weight: 300;
+  padding-left:16px;
+}
+
+.info {
+  margin-top:0;
+  padding: 0 20px 20px;
+  width: 100%;
+}
+
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding:20px;
+  background-color: white;
+}
+
+@media (orientation: portrait) {
+  #config {
+    width:98%;
+  }
+
+  #runner {
+    width:98%;
+  }
+}

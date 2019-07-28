@@ -50,13 +50,17 @@ $(function() {
   $("chanceRange").ready(function() {
     $(".config").each(function() {
       var $this = $(this);
-
       var value = getUrlParameter($this.attr("id"));
       if(typeof value !== typeof undefined) {
         $this.val(parseFloat(value));
         $this.trigger("change");
       }
     });
+
+    var chance = getUrlParameter("chance");
+    if ($("#players").val() !== "" && $("#amount").val() !== "" && typeof chance !== typeof undefined) {
+      run();
+    }
   })
 
 });
